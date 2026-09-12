@@ -360,7 +360,7 @@ Contributions are welcome!
 
 ## 📄 License
 
-MIT © [kikocodder](https://github.com/kirtikumarAlone)
+MIT © [kirtikumar Alone](https://github.com/kirtikumarAlone)
 
 ---
 
