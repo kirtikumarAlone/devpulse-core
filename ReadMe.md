@@ -360,14 +360,14 @@ Contributions are welcome!
 
 ## 📄 License
 
-MIT © [kikocodder](https://github.com/kikocodder)
+MIT © [kikocodder](https://github.com/kirtikumarAlone)
 
 ---
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/kikocodder/devpulse-core)
-- [Report a Bug](https://github.com/kikocodder/devpulse-core/issues)
+- [GitHub Repository](https://github.com/kirtikumarAlone/devpulse-core)
+- [Report a Bug](https://github.com/kirtikumarAlone/devpulse-core/issues)
 - [OpenRouter](https://openrouter.ai) — recommended AI provider
 - [Neon](https://neon.tech) — recommended free database
 - [npm Package](https://www.npmjs.com/package/devpulse-core)
