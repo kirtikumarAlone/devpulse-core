@@ -1,0 +1,12 @@
+src/
+*.ts
+tsconfig.json
+docker-compose.yml
+.env
+setting.json
+prisma/
+node_modules/
+*.tsbuildinfo
+test-db.mjs
+prisma.config.ts
+Architecture page/

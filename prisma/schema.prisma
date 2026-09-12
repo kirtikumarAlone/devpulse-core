@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Repository {
+  id          String   @id @default(uuid())
+  name        String
+  localPath   String   @unique
+  indexedAt   DateTime @default(now())
+
+  files       FileSnapshot[]
+  gitCommits  GitCommit[]
+  chatRooms   ChatRoom[]
+  debugIssues DebugIssue[]
+}
+
+model FileSnapshot {
+  id           String     @id @default(uuid())
+  filename     String
+  absolutePath String     @unique
+  sizeInBytes  Int
+  repositoryId String
+  repository   Repository @relation(fields: [repositoryId], references: [id], onDelete: Cascade)
+}
+
+model GitCommit {
+  id           String     @id @default(uuid())
+  hash         String
+  author       String
+  message      String
+  createdAt    DateTime   @default(now())
+  repositoryId String
+  repository   Repository @relation(fields: [repositoryId], references: [id], onDelete: Cascade)
+}
+
+model ChatRoom {
+  id           String     @id @default(uuid())
+  title        String
+  createdAt    DateTime   @default(now())
+  repositoryId String
+  repository   Repository @relation(fields: [repositoryId], references: [id], onDelete: Cascade)
+  messages     ChatMessage[]
+}
+
+model ChatMessage {
+  id         String   @id @default(uuid())
+  role       String
+  content    String
+  chatRoomId String
+  createdAt  DateTime @default(now())
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+}
+
+model DebugIssue {
+  id           String     @id @default(uuid())
+  title        String
+  status       String
+  errorLog     String?
+  repositoryId String
+  createdAt    DateTime   @default(now())
+  repository   Repository @relation(fields: [repositoryId], references: [id], onDelete: Cascade)
+  agentSteps   AgentStep[]
+}
+
+model AgentStep {
+  id           String     @id @default(uuid())
+  thought      String
+  actionTaken  String
+  gitDiff      String
+  outputLog    String
+  debugIssueId String
+  createdAt    DateTime   @default(now())
+  stepNumber   Int
+  debugIssue   DebugIssue @relation(fields: [debugIssueId], references: [id], onDelete: Cascade)
+}

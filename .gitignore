@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+setting.json
+
+# Build output
+dist/
+
+# Generated files
+src/generated/prisma/
+
+# Build info
+*.tsbuildinfo

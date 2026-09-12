@@ -1,0 +1,43 @@
+{
+  "name": "devpulse-core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --watch dist/cli/index.js",
+    "start": "node dist/cli/index.js"
+  },
+  "engines": { 
+    "node": ">=18.0.0" 
+  },
+  "keywords": [],
+  "author": "kirtikumar Alone",
+  "license": "ISC",
+  "description": "AI-powered CLI tool that automatically solves GitHub issues",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "@types/figlet": "^1.7.0",
+    "axios": "^1.18.1",
+    "chalk": "^5.6.2",
+    "commander": "^15.0.0",
+    "figlet": "^1.11.0",
+    "inquirer": "^14.0.2",
+    "ora": "^9.4.1",
+    "pg": "^8.22.0",
+    "simple-git": "^3.36.0",
+    "typescript": "^6.0.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.10",
+    "@types/node": "^26.0.1",
+    "@types/pg": "^8.20.0",
+    "dotenv": "^17.4.2",
+    "prisma": "^7.8.0"
+  },
+  "bin": {
+    "devpulse": "./dist/cli/repl.js"
+  }
+}
